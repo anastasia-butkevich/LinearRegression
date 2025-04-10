@@ -1,0 +1,17 @@
+/build/
+/bin/
+/obj/
+/out/
+.idea/
+*.user
+*.suo
+*.vs/
+*.vscode/
+*.o
+*.obj
+*.exe
+*.out
+*.d
+*.lib
+*.a
+data_cleaned.csv
