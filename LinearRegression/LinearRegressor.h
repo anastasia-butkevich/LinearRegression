@@ -12,13 +12,12 @@ private:
     vector<double> costs;
     double alpha;
     int epochs;
-    int epochs;
+    double lambda;
 public:
-    LinearRegressor(vector<vector<double>> _Xtrain, vector<vector<double>> _Xtest, 
-                            vector<double> _yTrain, vector<double> _yTest, double _alpha, int _epochs);
-    void fit(vector<vector<double>> Xtrain, vector<double> yTrain, double alpha, int epochs);
+    LinearRegressor(vector<vector<double>> _Xtrain, vector<vector<double>> _Xtest,
+        vector<double> _yTrain, vector<double> _yTest, double _alpha, int _epochs, double _lambda);
+    void fit();
     vector<double> predict(vector<vector<double>> Xtest) const;
+    vector<double> getCosts() const;
     ~LinearRegressor();
 };
-
-

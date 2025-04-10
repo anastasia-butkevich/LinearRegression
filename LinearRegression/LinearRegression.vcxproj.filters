@@ -24,6 +24,9 @@
     <ClInclude Include="GradientDescent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NumericCSVParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LinearRegressor.cpp">
@@ -38,5 +41,13 @@
     <ClCompile Include="GradientDescent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NumericCSVParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\OneDrive\КПІ\ОБМД\data_cleaned.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,24 +1,24 @@
 #include "LinearRegressor.h"
 #include "GradientDescent.h"
 
-LinearRegressor::LinearRegressor(vector<vector<double>> _Xtrain, vector<vector<double>> _Xtest, 
-                                        vector<double> _yTrain, vector<double> _yTest, double _alpha, int _epochs)
+LinearRegressor::LinearRegressor(vector<vector<double>> _Xtrain, vector<vector<double>> _Xtest,
+                    vector<double> _yTrain, vector<double> _yTest, double _alpha, int _epochs, double _lambda)
     : Xtrain(_Xtrain)
     , Xtest(_Xtest)
     , yTrain(_yTrain)
     , yTest(_yTest)
     , alpha(_alpha)
     , epochs(_epochs)
+    , lambda(_lambda)
 {
+    W = vector<double>(_Xtrain[0].size(), 0.0);
+    b = 0.0;
+    costs = vector<double>(_epochs, 0.0);
 }
 
-void LinearRegressor::fit(vector<vector<double>> Xtrain, vector<double> yTrain, double alpha, int epochs)
+void LinearRegressor::fit()
 {
-    tuple<vector<double>, double, vector<double>> WeightsBiasCosts = GradientDescent::optimize(Xtrain, yTrain, alpha, epochs);
-
-    W = get<0>(WeightsBiasCosts);
-    b = get<1>(WeightsBiasCosts);
-    costs = get<2>(WeightsBiasCosts);
+    GradientDescent::optimize(Xtrain, yTrain, W, b, costs, alpha, epochs, lambda);
 }
 
 vector<double> LinearRegressor::predict(vector<vector<double>> Xtest) const
@@ -27,16 +27,21 @@ vector<double> LinearRegressor::predict(vector<vector<double>> Xtest) const
     int n = Xtest[0].size();
 
     vector<double> yPred(m, 0.0);
-    for (int i = 0; i < m; i++)
+    for (size_t i = 0; i < m; i++)
     {
         double prediction = b;
-        for (int j = 0; j < n; j++)
+        for (size_t j = 0; j < n; j++)
         {
             prediction += W[j] * Xtest[i][j];
         }
         yPred[i] = prediction;
     }
     return yPred;
+}
+
+vector<double> LinearRegressor::getCosts() const
+{
+    return costs;
 }
 
 LinearRegressor::~LinearRegressor()

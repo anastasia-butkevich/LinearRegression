@@ -1,10 +1,10 @@
 #pragma once
 #include <vector>
-#include <tuple>
 using namespace std;
 
 class GradientDescent
 {
 public:
-    static tuple<vector<double>, double, vector<double>> optimize(vector<vector<double>> X, vector<double> y, double alpha, int epochs);
+    static void optimize(vector<vector<double>> X, vector<double> y, 
+        vector<double> &W, double &b, vector<double> &costs, double alpha, int epochs, double lambda);
 };
