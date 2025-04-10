@@ -14,15 +14,16 @@ The project loads a dataset from a CSV file, splits it into training and test se
 ## Usage
 ### 1. Input data
 Ensure your dataset (CSV) is available and formatted correctly. It should contain only continuous normalized values. The dataset should have columns representing input features and a target variable (e.g., price, like in this example). Change the target variable accordingly to your dataset.
-### 2. Run the Model
+### 2. Configure the Parameters
 Open the main.cpp file and adjust the following parameters as needed:  
 `filename`: Path to the dataset (e.g., "data_cleaned.csv").  
 `target`: The name of a target variable.  
 `alpha`: Learning rate for gradient descent.  
 `epochs`: Number of iterations for training.  
 `lambda`: Regularization parameter.  
-And build and run the project (in IDE or command line).
-### 3. Output
+### 3. Run the Model  
+After configuring the parameters, build and run the project. You can do this in your C++ IDE or via the command line (using g++ or clang++).  
+### 4. Output
 The program will output the cost at each epoch and the final MSE on the test set. The costs array will contain the value of the cost function after each epoch.  
 
 **Example Output (housing price dataset):**
@@ -34,3 +35,6 @@ Cost at epoch 200: 0.0865652
 Final cost: 0.0830284
 Mean Squared Error on test set: 1.62752
 ```
+## Additional Notes
+- Data Normalization: Ensure that the dataset is normalized (scaled) before training for optimal performance of gradient descent.
+- Learning Rate: The learning rate (alpha) might need adjustment depending on the dataset size and complexity.
