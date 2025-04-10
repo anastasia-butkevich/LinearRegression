@@ -127,8 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GradientDescent.h" />
     <ClInclude Include="LinearRegressor.h" />
-    <ClInclude Include="LossFunction.h" />
+    <ClInclude Include="CostFunction.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GradientDescent.cpp" />
+    <ClCompile Include="LinearRegressor.cpp" />
+    <ClCompile Include="CostFunction.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
